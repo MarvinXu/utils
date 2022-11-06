@@ -16,10 +16,21 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build-fast": "tsup src/index.ts --format cjs,esm",
+    "build-fast": "tsup",
     "build": "pnpm run build-fast -- --dts-resolve",
     "test": "vitest run",
     "prepublishOnly": "pnpm run build"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.js"
+    ],
+    "format": [
+      "cjs",
+      "esm",
+      "iife"
+    ],
+    "globalName": "utils"
   },
   "license": "MIT",
   "devDependencies": {
